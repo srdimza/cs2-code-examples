@@ -6,6 +6,7 @@ import scalafx.application.JFXApp.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, TextArea, TextField}
 import scalafx.scene.layout.{HBox, VBox}
+import mvc.Model
 
 object View extends JFXApp {
 
