@@ -4,8 +4,22 @@ import scala.annotation.tailrec
 
 // Simple Linked List implementation (note: Cannot represent empty list)
 class LinkedListNode[A](var value: A, var next: LinkedListNode[A]) {
-
-
+   def reduce(action: (A, A) => A): A = {
+    var node = this
+    var container = this.value
+    while (node.next != null) {
+      node = node.next
+      container = action(container, node.value)
+    }
+    container
+  }
+  def append(a: A): Unit ={
+    if (this.next == null) {
+      this.next = new LinkedListNode[A](a, null)
+    }else{
+      this.next.append(a)
+    }
+  }
   /**
    * prepend an new node to the beginning of the list with the given value and returns a reference to the new node
    */
